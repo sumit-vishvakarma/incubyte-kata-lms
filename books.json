@@ -1,0 +1,27 @@
+[
+  { "isbn": "001", "title": "Ruby Basics", "author": "John Doe", "year": 2020 },
+  {
+    "isbn": "002",
+    "title": "Rails Mastery",
+    "author": "Jane Smith",
+    "year": 2019
+  },
+  {
+    "isbn": "003",
+    "title": "JavaScript Guide",
+    "author": "Alice Johnson",
+    "year": 2021
+  },
+  {
+    "isbn": "004",
+    "title": "Python Fundamentals",
+    "author": "Bob Brown",
+    "year": 2018
+  },
+  {
+    "isbn": "005",
+    "title": "Clean Code",
+    "author": "Robert Martin",
+    "year": 2008
+  }
+]
