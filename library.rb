@@ -20,4 +20,11 @@ class Library
 
 		book[:available] = false
 	end
+	
+	def return_book(isbn)
+  	book = @books.find { |b| b[:isbn] == isbn }
+  	raise 'Book not found' unless book
+
+  	book[:available] = true
+	end
 end

@@ -19,7 +19,7 @@ RSpec.describe Library do
       expect { library.add_book(book) }.to raise_error('Book already exists')
     end
   end
-	
+
 	describe '#borrow_book' do
 		let(:book) { { isbn: '12345', title: 'Ruby 101', author: 'John Doe', year: 2021 } }
 
@@ -41,5 +41,22 @@ RSpec.describe Library do
 			expect { library.borrow_book('67890') }.to raise_error('Book not found')
 		end
 	end
+	
+	describe '#return_book' do
+  	let(:book) { { isbn: '12345', title: 'Ruby 101', author: 'John Doe', year: 2021 } }
 
+		before do
+			library.add_book(book)
+			library.borrow_book('12345')
+		end
+
+		it 'marks a book as available when returned' do
+			library.return_book('12345')
+			expect(library.books.first[:available]).to be(true)
+		end
+
+		it 'raises an error if the book does not exist' do
+			expect { library.return_book('67890') }.to raise_error('Book not found')
+		end
+	end
 end
