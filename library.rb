@@ -27,4 +27,8 @@ class Library
 
   	book[:available] = true
 	end
+	
+	def view_available_books
+  	@books.select { |b| b[:available] }
+	end
 end

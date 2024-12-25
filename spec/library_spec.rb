@@ -59,4 +59,21 @@ RSpec.describe Library do
 			expect { library.return_book('67890') }.to raise_error('Book not found')
 		end
 	end
+
+	describe '#view_available_books' do
+  	let(:book1) { { isbn: '12345', title: 'Ruby 101', author: 'John Doe', year: 2021 } }
+  	let(:book2) { { isbn: '67890', title: 'Rails Advanced', author: 'Jane Smith', year: 2022 } }
+
+		before do
+			library.add_book(book1)
+			library.add_book(book2)
+			library.borrow_book('12345')
+		end
+
+		it 'returns only available books' do
+			available_books = library.view_available_books
+			expect(available_books.size).to eq(1)
+			expect(available_books.first[:title]).to eq('Rails Advanced')
+		end
+	end
 end
