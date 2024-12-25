@@ -12,4 +12,12 @@ class Library
 
     @books << book.merge({ available: true })
   end
+
+	def borrow_book(isbn)
+		book = @books.find { |b| b[:isbn] == isbn }
+		raise 'Book not found' unless book
+		raise 'Book is already borrowed' unless book[:available]
+
+		book[:available] = false
+	end
 end
